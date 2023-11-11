@@ -1,0 +1,9 @@
+bin/*
+godot-cpp
+
+!bin/voicing.gdextension
+
+.sconsign.dblite
+
+register_types.windows.template_debug.x86_64.obj
+voicing.windows.template_debug.x86_64.obj
