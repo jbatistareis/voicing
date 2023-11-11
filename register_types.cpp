@@ -1,4 +1,3 @@
-#pragma once
 #include "register_types.h"
 
 #include "voicing.h"
