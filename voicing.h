@@ -4,7 +4,6 @@
 
 #include <godot_cpp/classes/node.hpp>
 
-#include "envelope.h"
 #include "oscillator.h"
 
 namespace godot {
@@ -20,11 +19,6 @@ namespace godot {
 		Oscillator oscillator3;
 		Oscillator oscillator4;
 
-		Envelope envelope1;
-		Envelope envelope2;
-		Envelope envelope3;
-		Envelope envelope4;
-
 	protected:
 		static void _bind_methods();
 
@@ -33,6 +27,8 @@ namespace godot {
 		~Voicing();
 
 		void _process(double delta);
+
+		double sampleRate;
 
 		// TODO
 		int algorithm;
@@ -45,32 +41,32 @@ namespace godot {
 		bool osc4Mute;
 
 		// TODO keys enum
-		int osc1BrkPt;
-		int osc2BrkPt;
-		int osc3BrkPt;
-		int osc4BrkPt;
+		int osc1Brkpt;
+		int osc2Brkpt;
+		int osc3Brkpt;
+		int osc4Brkpt;
 
 		// TODO curve enum
-		int osc1BrkPtLCurve;
-		int osc2BrkPtLCurve;
-		int osc3BrkPtLCurve;
-		int osc4BrkPtLCurve;
+		int osc1BrkptLCurve;
+		int osc2BrkptLCurve;
+		int osc3BrkptLCurve;
+		int osc4BrkptLCurve;
 
-		int osc1BrkPtLCurveDpt;
-		int osc2BrkPtLCurveDpt;
-		int osc3BrkPtLCurveDpt;
-		int osc4BrkPtLCurveDpt;
+		int osc1BrkptLCurveDpt;
+		int osc2BrkptLCurveDpt;
+		int osc3BrkptLCurveDpt;
+		int osc4BrkptLCurveDpt;
 
 		// TODO curve enum
-		int osc1BrkPtRCurve;
-		int osc2BrkPtRCurve;
-		int osc3BrkPtRCurve;
-		int osc4BrkPtRCurve;
+		int osc1BrkptRCurve;
+		int osc2BrkptRCurve;
+		int osc3BrkptRCurve;
+		int osc4BrkptRCurve;
 
-		int osc1BrkPtRCurveDpt;
-		int osc2BrkPtRCurveDpt;
-		int osc3BrkPtRCurveDpt;
-		int osc4BrkPtRCurveDpt;
+		int osc1BrkptRCurveDpt;
+		int osc2BrkptRCurveDpt;
+		int osc3BrkptRCurveDpt;
+		int osc4BrkptRCurveDpt;
 
 		// TODO keys enum
 		int osc1InputNote;

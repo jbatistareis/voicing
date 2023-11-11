@@ -1,5 +1,9 @@
 #include "lookupTables.h"
 
+double const keyFrequency[132] = {
+
+};
+
 double const oscLevel[128] = {
 
 };
