@@ -3,21 +3,32 @@
 #define VOICING_H
 
 #include <godot_cpp/classes/node.hpp>
+#include <godot_cpp/classes/audio_stream_player.hpp>
+#include <godot_cpp/classes/audio_stream_generator.hpp>
+#include <godot_cpp/classes/audio_stream_generator_playback.hpp>
 
 #include "oscillator.h"
+#include "envelope.h"
 
 namespace godot {
 
-	class Voicing : public Node {
-		GDCLASS(Voicing, Node)
+	class Voicing : public AudioStreamPlayer {
+		GDCLASS(Voicing, AudioStreamPlayer)
 
 	private:
-		double deltaTime;
+		AudioStreamGeneratorPlayback* audioStreamGeneratorPlayback;
+
+		int freeFrames;
 
 		Oscillator oscillator1;
 		Oscillator oscillator2;
 		Oscillator oscillator3;
 		Oscillator oscillator4;
+
+		Envelope envelope1;
+		Envelope envelope2;
+		Envelope envelope3;
+		Envelope envelope4;
 
 	protected:
 		static void _bind_methods();
@@ -26,7 +37,11 @@ namespace godot {
 		Voicing();
 		~Voicing();
 
-		void _process(double delta);
+		void _ready();
+		void _process(double _delta);
+
+		void press(int key); // TODO keyFrequency LUT
+		void release();
 
 		double sampleRate;
 

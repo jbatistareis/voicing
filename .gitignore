@@ -5,5 +5,4 @@ godot-cpp
 
 .sconsign.dblite
 
-register_types.windows.template_debug.x86_64.obj
-voicing.windows.template_debug.x86_64.obj
+*.obj

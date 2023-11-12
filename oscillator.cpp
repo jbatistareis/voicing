@@ -3,8 +3,8 @@
 Oscillator::Oscillator() {
 	currentPhase = 0.0;
 	phaseIncrement = 0.0;
-	sampleRate = 0.0;
-	frequency = 0.0;
+	sampleRate = 44100.0;
+	frequency = 440.0;
 	modulation = 0.0;
 }
 

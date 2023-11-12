@@ -1,29 +1,29 @@
 #include "lookupTables.h"
 
-double const keyFrequency[132] = {
+double keyFrequency[132] = {
 
 };
 
-double const oscLevel[128] = {
+double oscLevel[128] = {
 
 };
 
-double const oscFreqFine[128] = {
+double oscFreqFine[128] = {
 
 };
 
-double const oscFreqDetune[128] = {
+double oscFreqDetune[128] = {
 
 };
 
-double const envLevel[128] = {
+double envLevel[128] = {
 
 };
 
-double const envSpeed[128] = {
+double envSpeed[128] = {
 
 };
 
-double const envSpeedScale[128] = {
+double envSpeedScale[128] = {
 
 };
