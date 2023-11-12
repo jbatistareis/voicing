@@ -5,6 +5,8 @@ using namespace godot;
 
 void Voicing::_bind_methods()
 {
+	ClassDB::bind_method(D_METHOD("press"), &Voicing::press);
+	ClassDB::bind_method(D_METHOD("release"), &Voicing::release);
 }
 
 Voicing::Voicing()
@@ -26,9 +28,9 @@ void godot::Voicing::_ready()
 }
 
 void godot::Voicing::_process(double _delta)
-{
+{	
 	for (int i = 0; i < audioStreamGeneratorPlayback->get_frames_available(); i++) {
-		audioStreamGeneratorPlayback->push_frame(Vector2(1, 1) * oscillator1.sine());
+		audioStreamGeneratorPlayback->push_frame(VECTOR2_ONE * oscillator1.sine());
 	}
 }
 

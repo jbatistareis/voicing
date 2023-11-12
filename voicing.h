@@ -16,9 +16,9 @@ namespace godot {
 		GDCLASS(Voicing, AudioStreamPlayer)
 
 	private:
-		AudioStreamGeneratorPlayback* audioStreamGeneratorPlayback;
+		const Vector2 VECTOR2_ONE = Vector2(1, 1);
 
-		int freeFrames;
+		AudioStreamGeneratorPlayback* audioStreamGeneratorPlayback;
 
 		Oscillator oscillator1;
 		Oscillator oscillator2;
