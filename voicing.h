@@ -6,9 +6,11 @@
 #include <godot_cpp/classes/audio_stream_player.hpp>
 #include <godot_cpp/classes/audio_stream_generator.hpp>
 #include <godot_cpp/classes/audio_stream_generator_playback.hpp>
+#include <godot_cpp/core/class_db.hpp>
 
 #include "oscillator.h"
 #include "envelope.h"
+#include "lookupTables.h"
 
 namespace godot {
 
@@ -23,12 +25,12 @@ namespace godot {
 		Oscillator oscillator1;
 		Oscillator oscillator2;
 		Oscillator oscillator3;
-		Oscillator oscillator4;
+		Oscillator noise;
+		Oscillator lfo;
 
-		Envelope envelope1;
-		Envelope envelope2;
-		Envelope envelope3;
-		Envelope envelope4;
+		Envelope osc1Env;
+		Envelope osc2Env;
+		Envelope filterEnv;
 
 	protected:
 		static void _bind_methods();
@@ -46,109 +48,70 @@ namespace godot {
 		double sampleRate;
 
 		// TODO
-		int algorithm;
-
 		bool pressed;
-
-		bool osc1Mute;
-		bool osc2Mute;
-		bool osc3Mute;
-		bool osc4Mute;
 
 		// TODO keys enum
 		int osc1Brkpt;
 		int osc2Brkpt;
 		int osc3Brkpt;
-		int osc4Brkpt;
 
 		// TODO curve enum
 		int osc1BrkptLCurve;
 		int osc2BrkptLCurve;
 		int osc3BrkptLCurve;
-		int osc4BrkptLCurve;
 
 		int osc1BrkptLCurveDpt;
 		int osc2BrkptLCurveDpt;
 		int osc3BrkptLCurveDpt;
-		int osc4BrkptLCurveDpt;
 
 		// TODO curve enum
 		int osc1BrkptRCurve;
 		int osc2BrkptRCurve;
 		int osc3BrkptRCurve;
-		int osc4BrkptRCurve;
 
 		int osc1BrkptRCurveDpt;
 		int osc2BrkptRCurveDpt;
 		int osc3BrkptRCurveDpt;
-		int osc4BrkptRCurveDpt;
 
-		// TODO keys enum
-		int osc1InputNote;
-		int osc2InputNote;
-		int osc3InputNote;
-		int osc4InputNote;
+		// TODO curve enum
+		int filterBrkptRCurve;
+		int filterBrkptRCurve;
+			
+		int filterBrkptRCurveDpt;
+		int filterBrkptRCurveDpt;
+
+		int osc1Octave;
+		int osc2Octave;
 
 		double osc1FixedFreq;
 		double osc2FixedFreq;
-		double osc3FixedFreq;
-		double osc4FixedFreq;
 
 		int osc1FreqRatio;
 		int osc2FreqRatio;
-		int osc3FreqRatio;
-		int osc4FreqRatio;
-
-		int osc1FreqFine;
-		int osc2FreqFine;
-		int osc3FreqFine;
-		int osc4FreqFine;
-
-		int osc1FreqDetune;
-		int osc2FreqDetune;
-		int osc3FreqDetune;
-		int osc4FreqDetune;
 
 		int osc1Lvl;
 		int osc2Lvl;
 		int osc3Lvl;
-		int osc4Lvl;
+		int noiseLvl;
+		int lfoLvl;
 
-		int osc1EnvAtkLvl;
-		int osc1EnvAtkSpd;
-		int osc1EnvDecLvl;
-		int osc1EnvDecSpd;
-		int osc1EnvSusLvl;
-		int osc1EnvSusSpd;
-		int osc1EnvRelLvl;
-		int osc1EnvRelSpd;
+		int mainEnvAtkLvl;
+		int mainEnvAtkSpd;
+		int mainEnvDecLvl;
+		int mainEnvDecSpd;
+		int mainEnvSusLvl;
+		int mainEnvSusSpd;
+		int mainEnvRelLvl;
+		int mainEnvRelSpd;
 
-		int osc2EnvAtkLvl;
-		int osc2EnvAtkSpd;
-		int osc2EnvDecLvl;
-		int osc2EnvDecSpd;
-		int osc2EnvSusLvl;
-		int osc2EnvSusSpd;
-		int osc2EnvRelLvl;
-		int osc2EnvRelSpd;
-
-		int osc3EnvAtkLvl;
-		int osc3EnvAtkSpd;
-		int osc3EnvDecLvl;
-		int osc3EnvDecSpd;
-		int osc3EnvSusLvl;
-		int osc3EnvSusSpd;
-		int osc3EnvRelLvl;
-		int osc3EnvRelSpd;
-
-		int osc4EnvAtkLvl;
-		int osc4EnvAtkSpd;
-		int osc4EnvDecLvl;
-		int osc4EnvDecSpd;
-		int osc4EnvSusLvl;
-		int osc4EnvSusSpd;
-		int osc4EnvRelLvl;
-		int osc4EnvRelSpd;
+		int filterEnvAtkLvl;
+		int filterEnvAtkSpd;
+		int filterEnvDecLvl;
+		int filterEnvDecSpd;
+		int filterEnvSusLvl;
+		int filterEnvSusSpd;
+		int filterEnvRelLvl;
+		int filterEnvRelSpd;
 	};
 
 }

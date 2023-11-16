@@ -1,5 +1,5 @@
 #include "voicing.h"
-#include <godot_cpp/core/class_db.hpp>
+
 
 using namespace godot;
 
@@ -12,6 +12,10 @@ void Voicing::_bind_methods()
 Voicing::Voicing()
 {
 	oscillator1.updateSettings();
+	oscillator2.updateSettings();
+	oscillator3.updateSettings();
+	noise.updateSettings();
+	lfo.updateSettings();
 }
 
 Voicing::~Voicing()
