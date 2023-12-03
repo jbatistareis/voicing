@@ -128,7 +128,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="breakpoint.h" />
     <ClInclude Include="envelope.h" />
     <ClInclude Include="lookupTables.h" />
     <ClInclude Include="oscillator.h" />
@@ -136,7 +135,6 @@
     <ClInclude Include="register_types.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="breakpoint.cpp" />
     <ClCompile Include="envelope.cpp" />
     <ClCompile Include="lookupTables.cpp" />
     <ClCompile Include="oscillator.cpp" />

@@ -44,6 +44,8 @@ namespace godot {
 		double lfoFrame = 0.0;
 		double finalFrame = 0.0;
 
+		double whlLerp = 0;
+
 		double whlFreqModVal = 0.0;
 		double whlFilterModVal = 0.0;
 		double whlWaveModVal = 0.0;
@@ -76,13 +78,11 @@ namespace godot {
 		int lfoFreq = 0;
 
 		int whlPos = 64;
-		double whlLerp = 0;
-
 		int whlFreqMod = 0;
 		int whlFilterMod = 0;
 		int whlWaveMod = 0; // TODO figure out
 
-		bool pithModOsc2;
+		bool pithModOsc2 = false;
 
 		int mainLvl = 127;
 		int osc1Lvl = 127;
