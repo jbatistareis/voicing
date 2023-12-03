@@ -25,12 +25,28 @@ namespace godot {
 		Oscillator oscillator1;
 		Oscillator oscillator2;
 		Oscillator oscillator3;
-		Oscillator noise;
+		Oscillator noiseOscillator;
 		Oscillator lfo;
 
 		Envelope osc1Env;
 		Envelope osc2Env;
 		Envelope filterEnv;
+
+		double sampleRate = 44100.0;
+
+		bool pressed;
+
+		int currKey = 0;
+		int prevKey = 0;
+		double currFreq = 440.0;
+
+		double noiseFrame = 0.0;
+		double lfoFrame = 0.0;
+		double finalFrame = 0.0;
+
+		double whlFreqModVal = 0.0;
+		double whlFilterModVal = 0.0;
+		double whlWaveModVal = 0.0;
 
 	protected:
 		static void _bind_methods();
@@ -45,72 +61,43 @@ namespace godot {
 		void press(int key); // TODO keyFrequency LUT
 		void release();
 
-		double sampleRate;
+		int freqFine;
 
-		// TODO
-		bool pressed;
+		int glideRate;
 
-		// TODO keys enum
-		int osc1Brkpt;
-		int osc2Brkpt;
-		int osc3Brkpt;
+		int osc1Shape;
+		int osc2Shape;
+		int lfoShape;
 
-		// TODO curve enum
-		int osc1BrkptLCurve;
-		int osc2BrkptLCurve;
-		int osc3BrkptLCurve;
-
-		int osc1BrkptLCurveDpt;
-		int osc2BrkptLCurveDpt;
-		int osc3BrkptLCurveDpt;
-
-		// TODO curve enum
-		int osc1BrkptRCurve;
-		int osc2BrkptRCurve;
-		int osc3BrkptRCurve;
-
-		int osc1BrkptRCurveDpt;
-		int osc2BrkptRCurveDpt;
-		int osc3BrkptRCurveDpt;
-
-		// TODO curve enum
-		int filterBrkptRCurve;
-		int filterBrkptRCurve;
-			
-		int filterBrkptRCurveDpt;
-		int filterBrkptRCurveDpt;
-
+		int mainOctave;
 		int osc1Octave;
 		int osc2Octave;
 
-		double osc1FixedFreq;
-		double osc2FixedFreq;
+		int lfoFreq = 0;
 
-		int osc1FreqRatio;
-		int osc2FreqRatio;
+		int whlPos = 64;
+		double whlLerp = 0;
 
-		int osc1Lvl;
-		int osc2Lvl;
-		int osc3Lvl;
-		int noiseLvl;
-		int lfoLvl;
+		int whlFreqMod = 0;
+		int whlFilterMod = 0;
+		int whlWaveMod = 0; // TODO figure out
 
-		int mainEnvAtkLvl;
+		bool pithModOsc2;
+
+		int mainLvl = 127;
+		int osc1Lvl = 127;
+		int osc2Lvl = 127;
+		int osc3Lvl = 127;
+		int noiseLvl = 0;
+
 		int mainEnvAtkSpd;
-		int mainEnvDecLvl;
 		int mainEnvDecSpd;
 		int mainEnvSusLvl;
-		int mainEnvSusSpd;
-		int mainEnvRelLvl;
 		int mainEnvRelSpd;
 
-		int filterEnvAtkLvl;
 		int filterEnvAtkSpd;
-		int filterEnvDecLvl;
 		int filterEnvDecSpd;
 		int filterEnvSusLvl;
-		int filterEnvSusSpd;
-		int filterEnvRelLvl;
 		int filterEnvRelSpd;
 	};
 
